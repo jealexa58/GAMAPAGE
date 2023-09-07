@@ -25,11 +25,11 @@ app.use("/api/", dateRoutes);
 
 if (process.env.NODE_ENV === "production") {
     const path = await import("path");
-    app.use(express.static("cliente"));
+    app.use(express.static("cliente/dist"));
 
     app.get("*", (req, res) => {
-        console.log(path.resolve("cliente", "index.html"));
-        res.sendFile(path.resolve("cliente", "index.html"));
+        console.log(path.resolve("cliente", "dist", "index.html"));
+        res.sendFile(path.resolve("cliente","dist", "index.html"));
     });
 }
 
